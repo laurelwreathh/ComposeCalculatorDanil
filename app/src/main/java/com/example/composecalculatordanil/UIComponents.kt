@@ -1,9 +1,6 @@
 package com.example.composecalculatordanil
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,7 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.composecalculatordanil.ui.theme.ComposeCalculatorDanilTheme
 
 class UIComponents{
 
@@ -37,64 +33,13 @@ class UIComponents{
 //OperationButton() - кнопка операций (оранжевая)
 //
 //SpecialButton() - специальные кнопки (красная)
-@Composable
-fun CalculatorLayout() {
-    Surface(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background),
-    ) {
-
-        Column(
-            verticalArrangement = Arrangement.Center
-        ) {
-            CalculatorDisplay("VALUE");
-
-            Row() {
-                for (n in 0..2) {
-                    CalculatorButton(n.toString())
-                }
-                OperationButton("/")
-
-                SpecialButton("C")
-
-            }
-            Row() {
-                for (n in 3..5) {
-                    CalculatorButton(n.toString())
-                }
-                OperationButton("X")
-
-            }
-            Row() {
-                for (n in 6..8) {
-                    CalculatorButton(n.toString())
-                }
-                OperationButton("-")
-
-            }
-            Row {
-                CalculatorButton(",")
-                CalculatorButton("9")
-                OperationButton("=")
-                OperationButton("+")
-
-
-            }
-
-
-        }
-
-    }
-}
-
 
 @Composable
 fun CalculatorDisplay(value: String, modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .background(Color.DarkGray, androidx.compose.foundation.shape.RoundedCornerShape(10.dp))
+            .background(Color(40, 40, 40, 150), androidx.compose.foundation.shape.RoundedCornerShape(10.dp))
             .padding(16.dp),
         contentAlignment = Alignment.CenterEnd
     ) {
@@ -114,7 +59,7 @@ fun CalculatorButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier.size(70.dp, 60.dp),
+        modifier = modifier.size(70.dp, 65.dp),
         colors = ButtonDefaults.buttonColors(containerColor = Color.Gray)
     ) {
         Text(text = symbol, style = MaterialTheme.typography.headlineMedium)
@@ -130,7 +75,7 @@ fun OperationButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier.size(70.dp, 60.dp),
+        modifier = modifier.size(70.dp, 65.dp),
         colors = ButtonDefaults.buttonColors(containerColor = Color(255, 192, 0))
     ) {
         Text(text = symbol, style = MaterialTheme.typography.headlineMedium)
@@ -146,7 +91,7 @@ fun SpecialButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier.size(100.dp, 60.dp),
+        modifier = modifier.size(70.dp, 65.dp),
         colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
     ) {
         Text(text = symbol, style = MaterialTheme.typography.headlineMedium)

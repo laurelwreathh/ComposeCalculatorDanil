@@ -13,7 +13,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ComposeCalculatorDanilTheme {
-                CalculatorLayout()
+                MainScreen()
+
+
             }
         }
     }
